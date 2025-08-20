@@ -2,31 +2,24 @@ NAME = libftprintf.a
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = src 
-INC = include
-
-SRCS = $(SRC)/ft_printf.c \
-      $(SRC)/fmt_char.c \
-	  $(SRC)/fmt_int.c \
-	  $(SRC)/fmt_hex.c \
-	  $(SRC)/fmt_ptr.c
-
-OBJS = %(SRCS:.c=.o)
-
-AR = ar rcs
-RM = rm -f
+SRC = fmt_char.c fmt_hex.c fmt_int.c fmt_ptr.c ft_printf.c
+OBJ = $(SRC:.c=.o)
+AR = ar recs
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+$(NAME):$(OBJ)
+	$(AR) $(NAME) $(OBJ)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I $(INC) -c $< -o $@
+%.o:%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(NAME)
+	rm -rf $(OBJ)
+
+fclean: clean
+	rm -rf $(NAME)
 
 re: fclean all
 
-PHONY: all clean fclean re
+.PHONY: all clean fclean re
