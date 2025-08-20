@@ -7,6 +7,6 @@ int ft_putptr(void *ptr)
     if(!ptr)
         return ft_putstr("(nil)");
     count += ft_putstr("0x");
-    coount += ft_putnbr_base((unsigned long)ptr, "0123456789abcdef");
+    count += ft_putnbr_base((unsigned long)ptr, "0123456789abcdef");
     return count;
 }

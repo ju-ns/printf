@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC = fmt_char.c fmt_hex.c fmt_int.c fmt_ptr.c ft_printf.c
 OBJ = $(SRC:.c=.o)
-AR = ar recs
+AR = ar rcs
 
 all: $(NAME)
 

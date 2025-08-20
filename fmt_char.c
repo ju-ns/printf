@@ -12,6 +12,9 @@ int ft_putstr(char *s)
     if (!s)
         return ft_putstr("(null)");
     while (s[i])
-        i+= ft_putchar(s[i++]);
+    {
+        ft_putchar(s[i]);
+        i++;
+    }
     return i;
 }
